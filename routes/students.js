@@ -6,6 +6,19 @@ var router = express.Router();
 const { findStudents, createStudent, updateStudent, deleteStudent } = require("../services/Students.service");
 
 /* GET users listing. */
+/**
+ * @swagger
+ *  /students:
+ *   get:
+ *       description: Obtener Estudiantes
+ *       parameters:
+ *        - name: id
+ *          description: Id del estudiante
+ *          in: query
+ *       responses:
+ *        200:
+ *            description: Funcionaaaaaaa!!!!!!!!!!!!
+ */
 router
   .get("/", async function (req, res, next) {
     try {
@@ -74,6 +87,44 @@ router
       });
     }
   })
+  /**
+  * @openapi
+  * /students:
+  *   put:
+  *       description: Insertar un nuevo estudiante
+  *       parameters:
+  *        - name: id
+  *          description: Id del estudiante para actualizar
+  *          in: query
+  *          required: true
+  *        - name: primer_nombre
+  *          description: Primer nombre del Estudiante
+  *          in: query
+  *          required: true
+  *        - name: segundo_nombre
+  *          description: Segundo nombre del Estudiante
+  *          in: query
+  *          required: true
+  *        - name: primer_apellido
+  *          description: primer apellido del Estudiante
+  *          in: query
+  *          required: true
+  *        - name: segundo_apellido
+  *          description: segundo apellido del Estudiante
+  *          in: query
+  *          required: true
+  *        - name: carrera
+  *          description: carrera que sigue el Estudiante
+  *          in: query
+  *          required: true
+  *        - name: nivel
+  *          description: nivel que esta el Estudiante
+  *          in: query
+  *          required: true
+  *       responses:
+  *        200:
+  *            description: Funcionaaaaaaa!!!!!!!!!!!!
+  */
   .put("/", DataValidator("query",UpdateStudent), async (req, res) => {
     try {
       
@@ -93,6 +144,19 @@ router
       });
     }
   })
+  /**
+ * @swagger
+ *  /students:
+ *   delete:
+ *       description: Eliminar 
+ *       parameters:
+ *        - name: id
+ *          description: Id del estudiante a eliminar
+ *          in: query
+ *       responses:
+ *        200:
+ *            description: Funcionaaaaaaa!!!!!!!!!!!!
+ */
   .delete("/", async (req, res) => {
 
     try {
