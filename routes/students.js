@@ -22,10 +22,10 @@ router
       });
     }
   })
-  .post("/", DataValidator("body",insertStudent), async (req, res) => {
+  .post("/", DataValidator("query",insertStudent), async (req, res) => {
     try {
 
-      const {primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, carrera, nivel} = req.body;
+      const {primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, carrera, nivel} = req.query;
       
       const result = await createStudent(primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, carrera, nivel);
 
@@ -40,11 +40,10 @@ router
       });
     }
   })
-  .put("/", DataValidator("body",UpdateStudent), async (req, res) => {
+  .put("/", DataValidator("query",UpdateStudent), async (req, res) => {
     try {
       
-      const { query: {id} } = req;
-      const {primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, carrera, nivel} = req.body;
+      const { query: {id, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, carrera, nivel} } = req;
       const result = await updateStudent(id, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, carrera, nivel);
       const studentUpdated = await findStudents(id);
 
@@ -60,11 +59,11 @@ router
       });
     }
   })
-  .delete("/:id", async (req, res) => {
+  .delete("/", async (req, res) => {
 
     try {
       
-      const { params: {id} } = req;
+      const { query: {id} } = req;
       const result = await deleteStudent(id);
       const studentDeleted = await findStudents();
 
