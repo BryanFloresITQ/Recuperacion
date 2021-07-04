@@ -17,7 +17,7 @@ const { findStudents, createStudent, updateStudent, deleteStudent } = require(".
  *          in: query
  *       responses:
  *        200:
- *            description: Funcionaaaaaaa!!!!!!!!!!!!
+ *            description: Traer estudiantes
  */
 router
   .get("/", async function (req, res, next) {
@@ -67,7 +67,7 @@ router
   *          required: true 
   *       responses:
   *        200:
-  *            description: Funcionaaaaaaa!!!!!!!!!!!!
+  *            description: Ingresar Estudiantes
   */
   .post("/", DataValidator("query",insertStudent), async (req, res) => {
     try {
@@ -96,7 +96,7 @@ router
   *        - name: id
   *          description: Id del estudiante para actualizar
   *          in: query
-  *          required: false
+  *          required: true
   *        - name: primer_nombre
   *          description: Primer nombre del Estudiante
   *          in: query
@@ -123,7 +123,7 @@ router
   *          required: false
   *       responses:
   *        200:
-  *            description: Funcionaaaaaaa!!!!!!!!!!!!
+  *            description: Actualizar Estudiantes
   */
   .put("/", DataValidator("query",UpdateStudent), async (req, res) => {
     try {
@@ -155,7 +155,7 @@ router
  *          in: query
  *       responses:
  *        200:
- *            description: Funcionaaaaaaa!!!!!!!!!!!!
+ *            description: Eliminar Estudiantes
  */
   .delete("/", async (req, res) => {
 
