@@ -40,40 +40,6 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 /**
  * @swagger
  *  /students:
- *   post:
- *       description: Insertar estudiante
- *       parameters:
- *        - name: primer_nombre
- *          description: Primer nombre 
- *          in: query
- *          required: true
- *        - name: segundo_nombre
- *          description: Segundo nombre 
- *          in: query
- *          required: true
- *        - name: primer_apellido
- *          description: primer apellido
- *          in: query
- *          required: true
- *        - name: segundo_apellido
- *          description: segundo apellido
- *          in: query
- *          required: true
- *        - name: carrera
- *          description: carrera
- *          in: query
- *          required: true
- *        - name: nivel
- *          description: nivel
- *          in: query
- *          required: true  
- *       responses:
- *        200:
- *            description: Dato Ingresado Correctamente
-*/
-/**
- * @swagger
- *  /students:
  *   put:
  *      description: Actualizar datos estudiante
  *      parameters:

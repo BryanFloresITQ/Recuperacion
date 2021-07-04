@@ -22,6 +22,40 @@ router
       });
     }
   })
+  /**
+  * @openapi
+  * /students:
+  *   post:
+  *       description: Insertar un nuevo estudiante
+  *       parameters:
+  *        - name: primer_nombre
+  *          description: Primer nombre del Estudiante
+  *          in: query
+  *          required: true
+  *        - name: segundo_nombre
+  *          description: Segundo nombre del Estudiante
+  *          in: query
+  *          required: true
+  *        - name: primer_apellido
+  *          description: primer apellido del Estudiante
+  *          in: query
+  *          required: true
+  *        - name: segundo_apellido
+  *          description: segundo apellido del Estudiante
+  *          in: query
+  *          required: true
+  *        - name: carrera
+  *          description: carrera que sigue el Estudiante
+  *          in: query
+  *          required: true
+  *        - name: nivel
+  *          description: nivel que esta el Estudiante
+  *          in: query
+  *          required: true 
+  *       responses:
+  *        200:
+  *            description: Funcionaaaaaaa!!!!!!!!!!!!
+  */
   .post("/", DataValidator("query",insertStudent), async (req, res) => {
     try {
 
