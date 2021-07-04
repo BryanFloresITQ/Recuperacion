@@ -1,4 +1,4 @@
-const { insertStudent, UpdateStudent } = require('../lib/Schema/Validacion');
+const { insertStudent, UpdateStudent, DeleteStudent } = require('../lib/Schema/Validacion');
 const { DataValidator } = require('../middleware/dataValidator');
 var express = require("express");
 var router = express.Router();
@@ -157,7 +157,7 @@ router
  *        200:
  *            description: Eliminar Estudiantes
  */
-  .delete("/", async (req, res) => {
+  .delete("/", DataValidator("query",DeleteStudent), async (req, res) => {
 
     try {
       
